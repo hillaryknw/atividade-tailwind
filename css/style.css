@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Desenvolvimento de Interface com Light e Dark Mode</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: "class"
+        };
+    </script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="min-h-screen bg-[#f5f6f7] dark:bg-[#090a0c] text-[#111827] dark:text-white transition-colors duration-300">
+
+    <div class="w-full flex justify-center px-3 py-3">
+
+        <div class="w-full max-w-[1050px] min-h-screen bg-white dark:bg-[#0d0d0f] rounded-xl overflow-hidden shadow-2xl border border-gray-200 dark:border-[#1d1d20]">
+
+            <header class="h-12 px-5 flex items-center justify-between bg-white dark:bg-[#151517] border-b border-gray-200 dark:border-[#222225]">
+
+                <div class="flex items-center gap-2.5">
+
+                    <div class="w-6 h-6 rounded-md bg-[#111827] dark:bg-white text-white dark:text-black flex items-center justify-center text-[10px] font-bold">
+                        M
+                    </div>
+
+                    <span class="text-xs font-bold">
+                        Minimal Store
+                    </span>
+
+                </div>
+
+
+                <button
+                    id="themeButton"
+                    onclick="alternarTema()"
+                    class="h-7 w-32 rounded-full border border-gray-200 dark:border-[#29292c] bg-gray-100 dark:bg-[#19191b] flex items-center justify-center gap-2 text-[9px] text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#252527] transition"
+                >
+
+
+                    <span id="themeText">
+                        Dark mode
+                    </span>
+
+                </button>
+
+            </header>
+
+
+            <main class="grid grid-cols-1 lg:grid-cols-[1.55fr_0.95fr] gap-6 p-5">
+
+
+                <section class="space-y-4">
+
+
+
+                    <div>
+
+                        <div class="flex items-center gap-2 mb-2">
+
+                            <span class="w-5 h-5 rounded-full bg-gray-100 dark:bg-[#19191b] border border-gray-200 dark:border-[#29292c] flex items-center justify-center text-[9px] text-gray-500 dark:text-gray-400">
+                                1
+                            </span>
+
+                            <h2 class="text-[11px] font-bold">
+                                Dados Pessoais
+                            </h2>
+
+                        </div>
+
+
+                        <div class="rounded-lg border border-gray-200 dark:border-[#29292c] bg-white dark:bg-[#111113] p-3.5">
+
+
+                            <label class="block text-[9px] font-semibold mb-1">
+                                E-mail para confirmação
+                            </label>
+
+                            <div class="relative mb-3">
+
+                                <i
+                                    data-lucide="mail"
+                                    class="absolute left-2.5 top-1/2 -translate-y-1/2 w-3 h-3 text-gray-500"
+                                ></i>
+
+                                <input
+                                    value="hillary.silva@exemplo.com.br"
+                                    class="w-full h-8 pl-8 pr-2 rounded-md border border-gray-300 dark:border-[#29292c] bg-white dark:bg-[#151517] text-[9px] outline-none focus:ring-1 focus:ring-gray-400"
+                                >
+
+                            </div>
+
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+
+                                <div>
+
+                                    <label class="block text-[9px] font-semibold mb-1">
+                                        Nome Completo
+                                    </label>
+
+                                    <input
+                                        value="Hillary Silva"
+                                        class="w-full h-8 px-2.5 rounded-md border border-gray-300 dark:border-[#29292c] bg-white dark:bg-[#151517] text-[9px] outline-none"
+                                    >
+
+                                </div>
+
+
+                                <div>
+
+                                    <label class="block text-[9px] font-semibold mb-1">
+                                        CPF
+                                    </label>
+
+                                    <input
+                                        value="342.890.128-40"
+                                        class="w-full h-8 px-2.5 rounded-md border border-gray-300 dark:border-[#29292c] bg-white dark:bg-[#151517] text-[9px] outline-none"
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+
+                            <label class="block text-[9px] font-semibold mb-1">
+                                Telefone / WhatsApp
+                            </label>
+
+                            <input
+                                value="(11) 98765-4321"
+                                class="w-full h-8 px-2.5 rounded-md border border-gray-300 dark:border-[#29292c] bg-white dark:bg-[#151517] text-[9px] outline-none"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <div class="flex items-center gap-2 mb-2">
+
+                            <span class="w-5 h-5 rounded-full bg-gray-100 dark:bg-[#19191b] border border-gray-200 dark:border-[#29292c] flex items-center justify-center text-[9px] text-gray-500 dark:text-gray-400">
+                                2
+                            </span>
+
+                            <h2 class="text-[11px] font-bold">
+                                Endereço de Entrega
+                            </h2>
+
+                        </div>
+
+
+                        <div class="rounded-lg border border-gray-200 dark:border-[#29292c] bg-white dark:bg-[#111113] p-3.5">
+
+                            <div class="grid grid-cols-1 sm:grid-cols-[0.7fr_1.3fr] gap-3 mb-3">
+
+                                <div>
+
+                                    <label class="block text-[9px] font-semibold mb-1">
+                                        CEP
+                                    </label>
+
+                                    <input
+                                        value="01310-100"
+                                        class="w-full h-8 px-2.5 rounded-md border border-gray-300 dark:border-[#29292c] bg-white dark:bg-[#151517] text-[9px]"
+                                    >
+
+                                </div>
+
+
+                                <div>
+
+                                    <label class="block text-[9px] font-semibold mb-1">
+                                        Cidade / UF
+                                    </label>
+
+                                    <input
+                                        value="São Paulo - SP"
+                                        class="w-full h-8 px-2.5 rounded-md border border-gray-300 dark:border-[#29292c] bg-white dark:bg-[#151517] text-[9px]"
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="grid grid-cols-1 sm:grid-cols-[1.5fr_0.5fr] gap-3">
+
+                                <div>
+
+                                    <label class="block text-[9px] font-semibold mb-1">
+                                        Logradouro / Avenida
+                                    </label>
+
+                                    <input
+                                        value="Av. Paulista"
+                                        class="w-full h-8 px-2.5 rounded-md border border-gray-300 dark:border-[#29292c] bg-white dark:bg-[#151517] text-[9px]"
+                                    >
+
+                                </div>
+
+
+                                <div>
+
+                                    <label class="block text-[9px] font-semibold mb-1">
+                                        Número
+                                    </label>
+
+                                    <input
+                                        value="1578"
+                                        class="w-full h-8 px-2.5 rounded-md border border-gray-300 dark:border-[#29292c] bg-white dark:bg-[#151517] text-[9px]"
+                                    >
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <div class="flex items-center gap-2 mb-2">
+
+                            <span class="w-5 h-5 rounded-full bg-gray-100 dark:bg-[#19191b] border border-gray-200 dark:border-[#29292c] flex items-center justify-center text-[9px]">
+                                3
+                            </span>
+
+                            <h2 class="text-[11px] font-bold">
+                                Forma de Pagamento
+                            </h2>
+
+                        </div>
+
+
+                        <div class="rounded-lg border border-gray-200 dark:border-[#29292c] bg-white dark:bg-[#111113] p-3.5">
+
+
+
+                            <div class="grid grid-cols-3 gap-2 mb-3">
+
+                                <button
+                                    id="btnCartao"
+                                    onclick="selecionarPagamento('cartao')"
+                                    class="h-10 rounded-md border border-gray-800 dark:border-gray-300 bg-white dark:bg-[#19191b] flex flex-col items-center justify-center gap-0.5 text-[9px] font-semibold"
+                                >
+
+                                    <i
+                                        data-lucide="credit-card"
+                                        class="w-3 h-3"
+                                    ></i>
+
+                                    Cartão
+
+                                </button>
+
+
+                                <button
+                                    id="btnPix"
+                                    onclick="selecionarPagamento('pix')"
+                                    class="relative h-10 rounded-md border border-gray-200 dark:border-[#29292c] bg-gray-50 dark:bg-[#19191b] flex flex-col items-center justify-center gap-0.5 text-[9px] text-gray-500 dark:text-gray-400"
+                                >
+
+                                    <span class="absolute -top-1.5 right-1 bg-emerald-500 text-white text-[7px] px-1.5 rounded-full">
+                                        -5% OFF
+                                    </span>
+
+                                    
+
+                                    PIX
+
+                                </button>
+
+
+                                <button
+                                    id="btnBoleto"
+                                    onclick="selecionarPagamento('boleto')"
+                                    class="h-10 rounded-md border border-gray-200 dark:border-[#29292c] bg-gray-50 dark:bg-[#19191b] flex flex-col items-center justify-center gap-0.5 text-[9px] text-gray-500 dark:text-gray-400"
+                                >
+
+                                    <i
+                                        data-lucide="file-text"
+                                        class="w-3 h-3"
+                                    ></i>
+
+                                    Boleto
+
+                                </button>
+
+                            </div>
+
+
+
+                            <div id="cartaoContent">
+
+                                <label class="block text-[9px] font-semibold mb-1">
+                                    Número do Cartão
+                                </label>
+
+                                <div class="relative mb-3">
+
+                                    <input
+                                        value="4532 •••• •••• 8910"
+                                        class="w-full h-8 px-2.5 rounded-md border border-gray-300 dark:border-[#29292c] bg-white dark:bg-[#151517] text-[9px]"
+                                    >
+
+                                    <span class="absolute right-2 top-1/2 -translate-y-1/2 text-[8px]">
+                                        
+                                    </span>
+
+                                </div>
+
+
+                                <label class="block text-[9px] font-semibold mb-1">
+                                    Nome no Cartão
+                                </label>
+
+                                <input
+                                    value="HILLARY SILVA"
+                                    class="w-full h-8 px-2.5 mb-3 rounded-md border border-gray-300 dark:border-[#29292c] bg-white dark:bg-[#151517] text-[9px]"
+                                >
+
+
+                                <div class="grid grid-cols-2 gap-3 mb-3">
+
+                                    <div>
+
+                                        <label class="block text-[9px] font-semibold mb-1">
+                                            Validade
+                                        </label>
+
+                                        <input
+                                            value="08/29"
+                                            class="w-full h-8 px-2.5 rounded-md border border-gray-300 dark:border-[#29292c] bg-white dark:bg-[#151517] text-[9px]"
+                                        >
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <label class="block text-[9px] font-semibold mb-1">
+                                            CVV
+                                        </label>
+
+                                        <input
+                                            value="777"
+                                            class="w-full h-8 px-2.5 rounded-md border border-gray-300 dark:border-[#29292c] bg-white dark:bg-[#151517] text-[9px]"
+                                        >
+
+                                    </div>
+
+                                </div>
+
+
+                                <label class="block text-[9px] font-semibold mb-1">
+                                    Parcelamento
+                                </label>
+
+                                <select class="w-full h-8 px-2.5 rounded-md border border-gray-300 dark:border-[#29292c] bg-white dark:bg-[#151517] text-[9px]">
+
+                                    <option>
+                                        3x de R$ 96,33 sem juros
+                                    </option>
+
+                                    <option>
+                                        2x de R$ 144,50 sem juros
+                                    </option>
+
+                                    <option>
+                                        1x de R$ 289,00
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+
+                            <div id="pixContent" class="hidden text-center">
+
+                                <div class="w-32 h-32 mx-auto bg-white p-2 rounded-md grid grid-cols-7 gap-1 border border-gray-300">
+
+                                    <span class="bg-black"></span>
+                                    <span></span>
+                                    <span class="bg-black"></span>
+                                    <span class="bg-black"></span>
+                                    <span></span>
+                                    <span class="bg-black"></span>
+                                    <span></span>
+
+                                    <span></span>
+                                    <span class="bg-black"></span>
+                                    <span class="bg-black"></span>
+                                    <span></span>
+                                    <span class="bg-black"></span>
+                                    <span></span>
+                                    <span class="bg-black"></span>
+
+                                    <span class="bg-black"></span>
+                                    <span></span>
+                                    <span class="bg-black"></span>
+                                    <span class="bg-black"></span>
+                                    <span></span>
+                                    <span class="bg-black"></span>
+                                    <span class="bg-black"></span>
+
+                                    <span class="bg-black"></span>
+                                    <span class="bg-black"></span>
+                                    <span></span>
+                                    <span class="bg-black"></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span class="bg-black"></span>
+
+                                    <span></span>
+                                    <span class="bg-black"></span>
+                                    <span class="bg-black"></span>
+                                    <span></span>
+                                    <span class="bg-black"></span>
+                                    <span class="bg-black"></span>
+                                    <span></span>
+
+                                    <span class="bg-black"></span>
+                                    <span></span>
+                                    <span class="bg-black"></span>
+                                    <span class="bg-black"></span>
+                                    <span></span>
+                                    <span class="bg-black"></span>
+                                    <span></span>
+
+                                    <span class="bg-black"></span>
+                                    <span class="bg-black"></span>
+                                    <span></span>
+                                    <span class="bg-black"></span>
+                                    <span class="bg-black"></span>
+                                    <span></span>
+                                    <span class="bg-black"></span>
+
+                                </div>
+
+                                <p class="text-[8px] text-gray-500 dark:text-gray-400 mt-3 mb-2">
+                                    Escaneie o QR Code no app do banco ou copie a chave abaixo para aprovação instantânea.
+                                </p>
+
+                                <div class="flex gap-2">
+
+                                    <input
+                                        value="00020126580014br.gov.bcb.pix..."
+                                        readonly
+                                        class="flex-1 h-7 px-2 rounded-md border border-gray-200 dark:border-[#29292c] bg-gray-50 dark:bg-[#151517] text-[8px]"
+                                    >
+
+                                    <button class="px-3 rounded-md bg-white dark:bg-[#222225] border border-gray-200 dark:border-[#29292c] text-[8px] font-semibold">
+                                        Copiar
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div
+                                id="boletoContent"
+                                class="hidden text-center py-8"
+                            >
+
+                                <i
+                                    data-lucide="file-text"
+                                    class="w-10 h-10 mx-auto text-gray-500 mb-2"
+                                ></i>
+
+                                <p class="text-xs font-bold">
+                                    Boleto Bancário
+                                </p>
+
+                                <p class="text-[9px] text-gray-500 dark:text-gray-400 mt-1">
+                                    O boleto será gerado após finalizar o pedido.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <aside>
+
+                    <div class="rounded-xl border border-gray-200 dark:border-[#29292c] bg-white dark:bg-[#111113] p-4 lg:sticky lg:top-4">
+
+                        <div class="flex justify-between items-center mb-5">
+
+                            <h2 class="text-xs font-bold">
+                                Resumo da Compra
+                            </h2>
+
+                            <span class="text-[9px] text-gray-500 dark:text-gray-400">
+                                1 item
+                            </span>
+
+                        </div>
+
+
+
+                        <div class="flex gap-3 mb-4">
+
+                            <div class="w-11 h-11 rounded-md bg-gray-100 dark:bg-[#19191b] border border-gray-200 dark:border-[#29292c] flex items-center justify-center">
+
+                                <i
+                                    data-lucide="music-2"
+                                    class="w-5 h-5 text-gray-500"
+                                ></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <h3 class="text-[10px] font-bold">
+                                    Headphone Wireless ANC
+                                </h3>
+
+                                <p class="text-[8px] text-gray-500 dark:text-gray-400 mt-0.5">
+                                    Edição Minimalista • Matte Black
+                                </p>
+
+                                <p class="text-[10px] font-bold mt-1">
+                                    R$ 289,00
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="flex gap-2 mb-4">
+
+                            <input
+                                placeholder="MINIMAL10"
+                                class="flex-1 h-8 px-2.5 rounded-md border border-gray-200 dark:border-[#29292c] bg-white dark:bg-[#151517] text-[8px] outline-none"
+                            >
+
+                            <button class="px-3 rounded-md bg-gray-100 dark:bg-[#222225] border border-gray-200 dark:border-[#29292c] text-[8px] font-semibold">
+                                Aplicar
+                            </button>
+
+                        </div>
+
+
+                        <div class="border-t border-gray-200 dark:border-[#29292c] pt-4">
+
+                            <div class="flex justify-between text-[9px] mb-2">
+
+                                <span class="text-gray-500 dark:text-gray-400">
+                                    Subtotal
+                                </span>
+
+                                <span>
+                                    R$ 289,00
+                                </span>
+
+                            </div>
+
+
+                            <div class="flex justify-between text-[9px] mb-2">
+
+                                <span class="text-gray-500 dark:text-gray-400">
+                                    Frete Sedex
+                                </span>
+
+                                <span class="text-emerald-500">
+                                    Grátis
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                id="descontoLinha"
+                                class="flex justify-between text-[9px] mb-4"
+                            >
+
+                                <span class="text-gray-500 dark:text-gray-400">
+                                    Desconto (Cupom 10%)
+                                </span>
+
+                                <span class="text-emerald-500">
+                                    - R$ 28,90
+                                </span>
+
+                            </div>
+
+
+
+                            <div class="border-t border-gray-200 dark:border-[#29292c] pt-4 flex justify-between items-center">
+
+                                <span class="text-xs font-bold">
+                                    Total
+                                </span>
+
+                                <div class="text-right">
+
+                                    <strong
+                                        id="total"
+                                        class="text-lg font-bold"
+                                    >
+                                        R$ 274,55
+                                    </strong>
+
+                                    <p
+                                        id="totalInfo"
+                                        class="text-[8px] text-gray-500 dark:text-gray-400"
+                                    >
+                                        em até 3x de R$ 86,70 sem juros
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <button
+                                id="finalizarButton"
+                                class="w-full h-9 mt-4 rounded-md bg-[#111827] dark:bg-white text-white dark:text-black text-[9px] font-bold flex items-center justify-center gap-2 hover:opacity-90 transition"
+                            >
+
+                                <i
+                                    data-lucide="lock"
+                                    class="w-3 h-3"
+                                ></i>
+
+                                <span id="finalizarText">
+                                    Finalizar Pedido • R$ 274,55
+                                </span>
+
+                            </button>
+
+
+
+                            <div class="mt-4 space-y-2">
+
+                                <p class="text-[8px] text-gray-500 dark:text-gray-400">
+                                    <span class="text-emerald-500 mr-1">✓</span>
+                                    30 dias de garantia incondicional
+                                </p>
+
+                                <p class="text-[8px] text-gray-500 dark:text-gray-400">
+                                    <span class="text-emerald-500 mr-1">✓</span>
+                                    Envio imediato com código de rastreio
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </aside>
+
+            </main>
+
+        </div>
+
+    </div>
+
+
+        <script src="tailwind.config.js"></script>
+
+    </body>
+
+    </html>
